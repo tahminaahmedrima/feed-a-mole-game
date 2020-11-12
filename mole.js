@@ -16,73 +16,73 @@ const moles = [
     status: "sad",
     next: getSadInterval(),
     king: true,
-    node: document.getElementById("hole-0")
+    node: document.getElementById("hole-0"),
   },
   {
     status: "sad",
     next: getSadInterval(),
     king: true,
-    node: document.getElementById("hole-1")
+    node: document.getElementById("hole-1"),
   },
   {
     status: "sad",
     next: getSadInterval(),
     king: true,
-    node: document.getElementById("hole-2")
+    node: document.getElementById("hole-2"),
   },
   {
     status: "sad",
     next: getSadInterval(),
     king: true,
-    node: document.getElementById("hole-3")
+    node: document.getElementById("hole-3"),
   },
   {
     status: "sad",
     next: getSadInterval(),
     king: true,
-    node: document.getElementById("hole-4")
+    node: document.getElementById("hole-4"),
   },
   {
     status: "sad",
     next: getSadInterval(),
     king: true,
-    node: document.getElementById("hole-5")
+    node: document.getElementById("hole-5"),
   },
   {
     status: "sad",
     next: getSadInterval(),
     king: true,
-    node: document.getElementById("hole-6")
+    node: document.getElementById("hole-6"),
   },
   {
     status: "sad",
     next: getSadInterval(),
     king: true,
-    node: document.getElementById("hole-7")
+    node: document.getElementById("hole-7"),
   },
   {
     status: "sad",
     next: getSadInterval(),
     king: true,
-    node: document.getElementById("hole-8")
+    node: document.getElementById("hole-8"),
   },
   {
     status: "sad",
     next: getSadInterval(),
     king: true,
-    node: document.getElementById("hole-9")
-  }
+    node: document.getElementById("hole-9"),
+  },
 ];
 
-const getNextStatus = mole => {
+const getNextStatus = (mole) => {
   switch (mole.status) {
     case "sad":
     case "fed":
       mole.next = getSadInterval();
       if (mole.king) {
-        mole.node.children[0].src = "./king-mole-leaving.png";
+        mole.node.children[0].src = "./img/king-mole-leaving.png";
       } else {
-        mole.node.children[0].src = "./mole-leaving.png";
+        mole.node.children[0].src = "./img/mole-leaving.png";
       }
       mole.status = "leaving";
       break;
@@ -95,9 +95,9 @@ const getNextStatus = mole => {
     case "hungry":
       mole.node.children[0].classList.toggle("hungry", false);
       if (mole.king) {
-        mole.node.children[0].src = "./king-mole-sad.png";
+        mole.node.children[0].src = "./img/king-mole-sad.png";
       } else {
-        mole.node.children[0].src = "./mole-sad.png";
+        mole.node.children[0].src = "./img/mole-sad.png";
       }
       mole.status = "sad";
       mole.next = getSadInterval();
@@ -109,15 +109,15 @@ const getNextStatus = mole => {
       mole.node.children[0].classList.toggle("hungry", true);
       mole.node.children[0].classList.toggle("gone", false);
       if (mole.king) {
-        mole.node.children[0].src = "./king-mole-hungry.png";
+        mole.node.children[0].src = "./img/king-mole-hungry.png";
       } else {
-        mole.node.children[0].src = "./mole-hungry.png";
+        mole.node.children[0].src = "./img/mole-hungry.png";
       }
       break;
   }
 };
 
-const feed = e => {
+const feed = (e) => {
   if (e.target.tagName !== "IMG" || !e.target.classList.contains("hungry")) {
     return;
   }
@@ -128,10 +128,10 @@ const feed = e => {
   mole.next = getSadInterval();
   mole.node.children[0].classList.toggle("hungry", false);
   if (mole.king) {
-    mole.node.children[0].src = "./king-mole-fed.png";
+    mole.node.children[0].src = "./img/king-mole-fed.png";
     score += 20;
   } else {
-    mole.node.children[0].src = "./mole-fed.png";
+    mole.node.children[0].src = "./img/mole-fed.png";
     score += 10;
   }
 
